@@ -17,7 +17,7 @@
                 <h1><img src="https://ducksboard.com/static/images/svg/logo-ducksboard-black-small.svg" title="gridster.js"></h1>
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for: v0.6.10</em>
+            <em>API Docs for: v0.6.11</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -143,8 +143,8 @@
 
         if (el &amp;&amp; !update) {
             this.data = el.offset();
-            this.data.width = el.width();
-            this.data.height = el.height();
+            this.data.width = el[0].scrollWidth;
+            this.data.height = el[0].scrollHeight;
         }
 
         if (el &amp;&amp; update &amp;&amp; !not_update_offsets) {
@@ -208,7 +208,7 @@
             return this.data(&#x27;coords&#x27;);
         }
 
-        var ins = new Coords(this, arguments[0]);
+        var ins = new Coords(this);
         this.data(&#x27;coords&#x27;, ins);
         return ins;
     };
